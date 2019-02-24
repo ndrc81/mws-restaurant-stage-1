@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
   cuisines
-var newMap
-var markers = []
+let newMap
+let markers = []
 
 /**
 * Registering the service worker as soon as possible
