@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
   cuisines
-let newMap
-let markers = []
+var newMap
+var markers = []
 
 /**
 * Registering the service worker as soon as possible
@@ -88,7 +88,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: 'pk.eyJ1IjoibmRyYzgxIiwiYSI6ImNqc2FoZXp0azBuOG40YXJ6MmE3aGY4YWwifQ.Q0gvTEU9czZ3e8VIo7onnw',
+    mapboxToken: 'pk.eyJ1IjoibmRyYzgxIiwiYSI6ImNqc2phaG4zcjB0MTg0OW9sN3NlNDl2dGoifQ.9sTmkzMOyJ_FeU3wz-_0iQ',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -174,7 +174,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = `a picture of a ${restaurant.name} restaurant`;
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -190,8 +190,9 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   more.tabIndex = 1;
+  more.setAttribute("role", "button");
   li.append(more)
-
+  
   return li
 }
 
